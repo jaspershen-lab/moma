@@ -1,0 +1,27 @@
+Package: moma
+Title: Interactive Macaque Multi-Organ Metabolic Aging Atlas
+Version: 0.1.0
+Authors@R:
+    person(
+      given = "Yuting",
+      family = "Shen",
+      role = c("aut", "cre"),
+      email = "xiaotao.shen@ntu.edu.sg"
+    )
+Description: Installable Shiny application for exploring a rhesus macaque
+    multi-organ metabolic aging atlas, including atlas browsing, methods,
+    and dataset downloads.
+License: GPL-3
+Encoding: UTF-8
+LazyData: false
+Imports:
+    dplyr,
+    htmltools,
+    readr,
+    shiny,
+    stringr,
+    xml2
+Suggests:
+    devtools
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
