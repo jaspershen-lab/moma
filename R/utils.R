@@ -47,11 +47,17 @@ arrange_cluster_rows <- function(df) {
     select(-cluster_order)
 }
 
+parse_pmid_ids <- function(pmids) {
+  pmid_text <- as.character(pmids %||% "")
+  if (length(pmid_text) == 0 || is.na(pmid_text[[1]])) {
+    return(character())
+  }
+  pmid_ids <- str_extract_all(pmid_text, "\\d+")[[1]]
+  unique(pmid_ids[nzchar(pmid_ids)])
+}
+
 build_pmid_links_ui <- function(pmids) {
-  pmid_ids <- str_split(pmids %||% "", "\\s*,\\s*")[[1]]
-  pmid_ids <- str_trim(pmid_ids)
-  pmid_ids <- str_replace_all(pmid_ids, "[^0-9]", "")
-  pmid_ids <- unique(pmid_ids[nzchar(pmid_ids)])
+  pmid_ids <- parse_pmid_ids(pmids)
 
   if (length(pmid_ids) == 0) {
     return(div(class = "cluster-detail-empty", "No references available for this cluster."))
