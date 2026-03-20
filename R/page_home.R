@@ -34,23 +34,23 @@ page_home_ui <- function(assets_prefix = NULL) {
     # Summary cards
     div(class = "summary-cards",
       div(class = "summary-card",
-        div(class = "sc-icon", "⬡"),
+        div(class = "sc-icon", "◈"),
         div(class = "sc-body",
-          div(class = "sc-val", "Multi-Organ Aging Dataset"),
-          div(class = "sc-sub", "Comprehensive metabolomics profiling across 30 monkey tissues covering major physiological systems.")
+          div(class = "sc-val", "Spectra to Function"),
+          div(class = "sc-sub", "Spec2Function interprets untargeted metabolomics data by directly inferring biological functions from MS/MS spectra.")
         )
       ),
       div(class = "summary-card",
-        div(class = "sc-icon", "◈"),
+        div(class = "sc-icon", "⬡"),
         div(class = "sc-body",
-          div(class = "sc-val", "Functional Inference"),
-          div(class = "sc-sub", "Spec2Function interprets untargeted metabolomics data by directly inferring biological functions from MS/MS spectra.")
+          div(class = "sc-val", "30 Tissues"),
+          div(class = "sc-sub", "Comprehensive metabolomics profiling across 30 monkey tissues covering major physiological systems.")
         )
       ),
       div(class = "summary-card",
         div(class = "sc-icon", "◎"),
         div(class = "sc-body",
-          div(class = "sc-val", "Interactive Aging Atlas"),
+          div(class = "sc-val", "Interactive Atlas"),
           div(class = "sc-sub", "Explore tissue-specific metabolic functional clusters through an interactive monkey anatomy map.")
         )
       )

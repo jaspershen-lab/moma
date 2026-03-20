@@ -10,8 +10,7 @@ load_moma_data <- function() {
   )
   tissue_clusters <- read_csv(
     file.path(extdata_dir, "tissue_cluster.csv"),
-    show_col_types = FALSE,
-    col_types = cols(pmids = col_character())
+    show_col_types = FALSE
   )
   tissue_sets <- read_csv(
     file.path(extdata_dir, "tissue_set.csv"),
@@ -46,7 +45,7 @@ load_moma_data <- function() {
     tissue_sets <- tissue_sets %>% rename(tissue_id = tissue)
   }
 
-  for (col in c("cluster_title", "summary", "pmids")) {
+  for (col in c("cluster_title", "summary")) {
     if (!col %in% names(tissue_clusters)) {
       tissue_clusters[[col]] <- NA_character_
     }
@@ -100,8 +99,7 @@ load_moma_data <- function() {
       cluster_id = cluster_id,
       functional_name = cluster_title,
       report = summary,
-      feature_count = feature_count,
-      pmids = pmids
+      feature_count = feature_count
     ) %>%
     left_join(
       tissue_table %>%
@@ -119,7 +117,6 @@ load_moma_data <- function() {
       cluster_id,
       functional_name,
       feature_count,
-      pmids,
       cluster_n,
       story,
       report

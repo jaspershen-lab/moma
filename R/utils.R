@@ -47,36 +47,6 @@ arrange_cluster_rows <- function(df) {
     select(-cluster_order)
 }
 
-parse_pmid_ids <- function(pmids) {
-  pmid_text <- as.character(pmids %||% "")
-  if (length(pmid_text) == 0 || is.na(pmid_text[[1]])) {
-    return(character())
-  }
-  pmid_ids <- str_extract_all(pmid_text, "\\d+")[[1]]
-  unique(pmid_ids[nzchar(pmid_ids)])
-}
-
-build_pmid_links_ui <- function(pmids) {
-  pmid_ids <- parse_pmid_ids(pmids)
-
-  if (length(pmid_ids) == 0) {
-    return(div(class = "cluster-detail-empty", "No references available for this cluster."))
-  }
-
-  div(
-    class = "pmid-link-list",
-    lapply(pmid_ids, function(pmid) {
-      tags$a(
-        href = paste0("https://pubmed.ncbi.nlm.nih.gov/", pmid, "/"),
-        target = "_blank",
-        rel = "noopener noreferrer",
-        class = "pmid-link",
-        paste0("PMID ", pmid)
-      )
-    })
-  )
-}
-
 build_anatomy_svg_ui <- function(svg_path, tissue_info) {
   if (!file.exists(svg_path)) {
     return(

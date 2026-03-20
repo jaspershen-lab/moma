@@ -5,7 +5,15 @@ page_methods_ui <- function() {
       div(class = "methods-eyebrow", "Analytical framework"),
       h2(class = "methods-title", "Methods"),
       p(class = "methods-intro",
-        "This atlas reanalyzes the metabolomics component of a landmark macaque aging study at the MS2-supported feature level. Following the differential analysis logic of the original study, we identified age-associated LC-MS/MS features in each tissue and used Spec2Function to infer their biological functions directly from MS2 spectra."
+        "This atlas reanalyzes the metabolomics component of a landmark macaque aging study at the MS2-supported feature level. Following the differential analysis logic of the original study, we identified age-associated LC-MS/MS features in each tissue and used ",
+        tags$a(
+          href = "https://spec2function.jaspershenlab.com/",
+          target = "_blank",
+          rel = "noopener noreferrer",
+          class = "methods-inline-link",
+          "Spec2Function"
+        ),
+        " to infer their biological functions directly from MS2 spectra."
       )
     ),
 
@@ -60,8 +68,11 @@ page_methods_ui <- function() {
               )
             ),
             br(),
-            p(class = "ms-text",
-              "This design preserves the comparative structure of the original aging analysis while extending it toward a more inclusive and function-oriented interpretation of untargeted metabolomics data."
+            div(class = "definition-note",
+              div(class = "dn-icon", "ℹ"),
+              div(class = "dn-text",
+                "This design preserves the comparative structure of the original aging analysis while extending it toward a more inclusive and function-oriented interpretation of untargeted metabolomics data."
+              )
             )
           )
         )
@@ -119,26 +130,26 @@ page_methods_ui <- function() {
           h3(class = "ms-heading", "Output definitions"),
           div(class = "definitions-grid",
             div(class = "def-item",
-              div(class = "def-term", "Feature"),
-              div(class = "def-desc", "An LC-MS/MS signal with m/z, retention time, and MS2 spectrum")
-            ),
-            div(class = "def-item",
               div(class = "def-term", "Functional cluster"),
-              div(class = "def-desc", "A group of differential features sharing related inferred biological functions")
+              div(class = "def-desc", "A tissue-specific group of age-associated MS2-supported features organized under a shared inferred functional theme")
             ),
             div(class = "def-item",
-              div(class = "def-term", "Representative terms"),
-              div(class = "def-desc", "Summarized functional labels, not definitive metabolite identifications")
+              div(class = "def-term", "Cluster size"),
+              div(class = "def-desc", "The number of differential features assigned to a functional cluster within a tissue")
             ),
             div(class = "def-item",
-              div(class = "def-term", "Directionality"),
-              div(class = "def-desc", "A higher-level summary that synthesizes all functional clusters within a tissue")
+              div(class = "def-term", "Functional report"),
+              div(class = "def-desc", "A concise text summary describing the major inferred biological functions represented by that cluster")
+            ),
+            div(class = "def-item",
+              div(class = "def-term", "Overview"),
+              div(class = "def-desc", "A tissue-level synthesis that summarizes the major aging-related functional patterns across all clusters in that tissue")
             )
           ),
           div(class = "definition-note",
             div(class = "dn-icon", "ℹ"),
             div(class = "dn-text",
-              "This atlas emphasizes functional interpretation rather than definitive chemical identification. Results should therefore be read as spectrum-based functional summaries of tissue aging."
+              "This atlas reports inferred functional organization of age-associated MS2-supported features. The displayed cluster labels, reports, and overviews are interpretation-oriented summaries and should not be read as definitive metabolite identifications."
             )
           )
         )
@@ -155,16 +166,16 @@ page_methods_ui <- function() {
             div(class = "ds-item",
               div(class = "ds-icon", "📄"),
               div(class = "ds-body",
-                div(class = "ds-title", "Paper 1 · Spec2Function"),
+                div(class = "ds-title", "Spec2Function"),
                 div(class = "ds-desc", "Zhang et al. · Deciphering the Biological Function of Tandem Mass Spectra Using a Dual-Modal Metabolite Language Model"),
                 tags$a(href = "#", class = "ds-link", "Manuscript pending →")
               )
             ),
             div(class = "ds-item",
-              div(class = "ds-icon", "📦"),
+              div(class = "ds-icon", "📄"),
               div(class = "ds-body",
-                div(class = "ds-title", "Paper 2 · Macaque multi-omics study"),
-                div(class = "ds-desc", "A multi-omics molecular landscape of 30 tissues in aging female rhesus macaques"),
+                div(class = "ds-title", "Macaque multi-omics study"),
+                div(class = "ds-desc", "Li et al. · A multi-omics molecular landscape of 30 tissues in aging female rhesus macaques"),
                 tags$a(href = "https://doi.org/10.1038/s41592-025-02912-y", target = "_blank", rel = "noopener noreferrer", class = "ds-link", "View DOI →")
               )
             ),
@@ -173,7 +184,7 @@ page_methods_ui <- function() {
               div(class = "ds-body",
                 div(class = "ds-title", "Analysis website"),
                 div(class = "ds-desc", "Spec2Function web resource and project repository"),
-                tags$a(href = "https://github.com/jaspershen-lab/spec2function", target = "_blank", rel = "noopener noreferrer", class = "ds-link", "Open website →")
+                tags$a(href = "https://spec2function.jaspershenlab.com/", target = "_blank", rel = "noopener noreferrer", class = "ds-link", "Open website →")
               )
             ),
             div(class = "ds-item",

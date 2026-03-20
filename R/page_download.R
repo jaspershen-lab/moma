@@ -81,7 +81,7 @@ page_download_ui <- function(systems, tissue_table, tissue_clusters) {
       div(class = "dl-note",
         div(class = "dn-icon", "ℹ"),
         div(class = "dn-text",
-          "All files are provided in comma-separated values (CSV) format. Each row represents one tissue-cluster result and includes the updated fields from the current release, including functional_name, report, feature_count, pmids, and tissue-level story/cluster_n when available."
+          "All files are provided in comma-separated values (CSV) format. Each row represents one tissue-cluster result and includes the updated fields from the current release, including functional_name, report, feature_count, and tissue-level story/cluster_n when available."
         )
       )
     )

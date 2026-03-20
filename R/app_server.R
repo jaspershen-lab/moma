@@ -274,11 +274,6 @@ app_server <- function(data) {
             class = "cluster-detail-item",
             div(class = "cluster-detail-label", "Functional Report"),
             div(class = "cluster-detail-summary", cl$summary[[1]])
-          ),
-          div(
-            class = "cluster-detail-item",
-            div(class = "cluster-detail-label", "References"),
-            build_pmid_links_ui(cl$pmids[[1]])
           )
         )
       )
