@@ -1,8 +1,18 @@
 app_ui <- function(data, anatomy_svg, assets) {
   fluidPage(
     tags$head(
+      tags$title("MOMA"),
       tags$link(rel = "preconnect", href = "https://fonts.googleapis.com"),
       tags$link(rel = "preconnect", href = "https://fonts.gstatic.com", crossorigin = NA),
+      tags$link(
+        rel = "icon",
+        type = "image/png",
+        href = paste0(
+          asset_href(assets$prefix, "shen_lab_logo.png"),
+          "?v=",
+          asset_mtime(assets$dir, "shen_lab_logo.png")
+        )
+      ),
       tags$link(
         href = "https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=JetBrains+Mono:wght@400;500&display=swap",
         rel = "stylesheet"
